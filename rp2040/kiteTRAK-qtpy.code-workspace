@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../kiteTRAK-qtpy"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"ostream": "cpp"
+		}
+	}
+}
