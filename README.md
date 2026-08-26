@@ -54,7 +54,7 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 * Trigger Settings: View your settings for L/R trigger modes and L/R offset values
 * Button Remaps: View your current button remap settings for A, B, D-pad Up, L, R, X, Y, and Z buttons
 
-
+---
 
 ## Equipment Needed
 * Soldering iron
@@ -103,6 +103,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 * Recommended: Mineral oil lubricant (1202K43)
     - Part numbers added to find on McMaster-Carr
 
+---
 
 ## Installation
 
