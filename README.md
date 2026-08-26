@@ -113,7 +113,8 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 1. Press in the 7x screw-to-expand threaded inserts in the following positions with the caps facing up:  
     * Note: If threaded inserts do not press fit with just a little force, use the P1 Philips screwdriver to slowly carve away some of the inner plastic materials in the insert posts. Make sure to only remove a small amount of material at a time to avoide loose inserts.
 
-  
+<br><br>
+
 <img width="740" height="679" alt="PXL_20260826_005752434 (1)" src="https://github.com/user-attachments/assets/aa2c25d4-b4d1-4d2a-88eb-b1d2cf9837e2" />  
 
 2. After all inserts are installed, use the pan-head Torx screws to expand and tighten down the inserts until flush:  
@@ -185,7 +186,7 @@ Now would be a good time to flash the firmware for the Phob board and the QtPy R
   
 <img width="740" height="621" alt="PXL_20260826_024449589 (1)" src="https://github.com/user-attachments/assets/7a8fb767-9ab5-4295-b39c-d5cad3f7af2a" />
   
-9. If using a newer GCC shell (like a Smash Ult. controller), you will need to trim this portion of the back-shell to void interference when closing with the QtPy RP2040 power cable wires.
+9. If using a newer GCC shell (like a Smash Ult. controller), you will need to trim this portion of the back-shell to avoid interference with the QtPy RP2040 power cables when closing.
 
 
 <img width="740" height="652" alt="PXL_20260826_025406819 (2)" src="https://github.com/user-attachments/assets/8cdfd740-6dbf-410f-99a1-602faea28650" />  
