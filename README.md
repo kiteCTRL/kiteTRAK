@@ -1,4 +1,4 @@
-# kiteTRAK-for-PhobGCC
+# kiteTRAK for PhobGCC
 
 <img width="740" height="741" alt="PXL_20260826_130957816" src="https://github.com/user-attachments/assets/de21104a-b67e-4540-9c75-9229bcdc93c1" />  
 
