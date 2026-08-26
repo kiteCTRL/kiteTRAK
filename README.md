@@ -139,13 +139,13 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 
 <img width="740" height="564" alt="PXL_20260826_014549643" src="https://github.com/user-attachments/assets/6a270760-95a5-4745-b62f-22d15b8b5f70" />  
 
-1. Insert and solder the female XA JST headers to the QtPy RP2040 as shown below:  
+1. Insert and solder the female XA JST headers to the QtPy RP2040 as shown above:  
     * Note: The headers will be facing opposite directions due to space constraints. Also, the 4pin XA JST header will sit on the ridge of the reset button, make sure it is not being pressed down when installing.
 
   
 <img width="740" height="550" alt="PXL_20260826_015955598 (1)" src="https://github.com/user-attachments/assets/e7370de2-4382-4d9e-a5e2-bf7bf39b5ba1" />  
 
-2. Cut the 3x 6" XA JST jumper cables in half to make 6x 3" cables, each with one pin. Strip 4x of the cables to expose the wires on the non-pin ends. Insert and solder the wires into the back-side of the Phob board's GPIO breakout pins lablled GP12-GP15 as shown below:  
+2. Cut the 3x 6" XA JST jumper cables in half to make 6x 3" cables, each with one pin. Strip 4x of the cables to expose the wires on the non-pin ends. Insert and solder the wires into the back-side of the Phob board's GPIO breakout pins lablled GP12-GP15 as shown above:  
 
   
 <img width="740" height="410" alt="rn_image_picker_lib_temp_c13a6599-646f-4fae-9a03-d20db38ac024 (1)" src="https://github.com/user-attachments/assets/8effcd73-a8c0-401a-8615-60797d17e636" />  
@@ -160,12 +160,12 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
   
 <img width="739" height="515" alt="PXL_20260826_022255254 (1)" src="https://github.com/user-attachments/assets/cf27a972-e5d4-4ab4-912d-e61ccec499a4" />  
 
-5. Fit the 4x pin XA JST header through the opening of the rumble motor bracket and move the 2x pin XA JST header out of the way. Insert the trigger boards into place, and press the rumble motor bracket down as below:  
+5. Fit the 4x pin XA JST header through the opening of the rumble motor bracket and move the 2x pin XA JST header out of the way. Insert the trigger boards into place, and press the rumble motor bracket down as above:  
 
   
 <img width="740" height="617" alt="PXL_20260826_022522808 (1)" src="https://github.com/user-attachments/assets/36a72e92-9845-41d6-a770-6504cf614dc9" />  
 
-6. Mount the cable headers into the QtPy RP2040 and move it into the space in the center of the bracket. The installed QtPy RP2040 will sit as shown below:  
+6. Mount the cable headers into the QtPy RP2040 and move it into the space in the center of the bracket. The installed QtPy RP2040 will sit as shown above:  
     * Note: Make sure to route the 4x GPIO wires so they are in front of the 'T' post to avoid interfering with the back-shell when closing. Also, the headers should fit into a small recess that dips down towards the board. 
 
     Now would be a good time to flash the firmware for the Phob board and the QtPy RP2040. Press and hold the reset button on the boards during USB mount to allow flashing the .uf2 files found in Releases. Make sure to only have one USB plugged in at a time when flashing. THIS MAY DAMAGE THE PHOB AND QTPY RP2040.
