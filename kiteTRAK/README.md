@@ -1,0 +1,1 @@
+This project uses the PlatformIO IDE to integrate all needed libraries for this project. Please use the PlatformIO IDE if making changes to the firmware. The .ini file should auto-initialize the needed settings for compilation.
