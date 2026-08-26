@@ -150,7 +150,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
   
 <img width="740" height="410" alt="rn_image_picker_lib_temp_c13a6599-646f-4fae-9a03-d20db38ac024 (1)" src="https://github.com/user-attachments/assets/8effcd73-a8c0-401a-8615-60797d17e636" />  
 
-3. Insert the pins into the XA JST male header with the following wires mounting the the following header holes:  
+3. Insert the pins into the XA JST male header with the following wires mounting to the following header holes:  
 
   
 <img width="740" height="577" alt="PXL_20260826_021211120 (1)" src="https://github.com/user-attachments/assets/39bf7ff3-ea57-412d-9c40-f4a6783d08d8" />  
