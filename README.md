@@ -117,7 +117,8 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 
 
 5. Attach the STEMMA QT cable to the right side header of the OLED display and feed it through the gap on the top-shell:  
-![adding-screen](<PXL_20260826_010112606 (1).jpg>)
+<img width="740" height="635" alt="PXL_20260826_010112606 (1)" src="https://github.com/user-attachments/assets/b0bc20e0-9b7a-40b9-94e9-2fe18ae144d1" />  
+
 
 6. Press the OLED display into place, add screen cover on-top of display, and use the 4x 8mm pan-head Torx screws to mount the screen to the top-shell:  
 <img width="740" height="635" alt="PXL_20260826_010112606 (1)" src="https://github.com/user-attachments/assets/b848feb5-76ed-4b0e-bde3-90c7b7ff5e25" />
