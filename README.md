@@ -39,7 +39,7 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 ### Animation Mode
 <img width="560" height="560" alt="PXL_20260826_160734884 (1)" src="https://github.com/user-attachments/assets/9af5c1f8-9d7b-408a-8b02-b26ca3254eb8" />  
 
-* Display a fire animtation
+* Display a fire animation
 * Display a rain animation
 * Display a water puddle reactive animation based on digital controller inputs
 
@@ -141,12 +141,12 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 <img width="740" height="564" alt="PXL_20260826_014549643" src="https://github.com/user-attachments/assets/6a270760-95a5-4745-b62f-22d15b8b5f70" />  
 
 1. Insert and solder the female XA JST headers to the QtPy RP2040 as shown above:  
-    * Note: The headers will be facing opposite directions due to space constraints. Also, the 4pin XA JST header will sit on the ridge of the reset button, make sure it is not being pressed down when installing.
+    * Note: The headers will be facing opposite directions due to space constraints. Also, the 4-pin XA JST header will sit on the ridge of the reset button, make sure it is not being pressed down when installing.
 
   
 <img width="740" height="550" alt="PXL_20260826_015955598 (1)" src="https://github.com/user-attachments/assets/e7370de2-4382-4d9e-a5e2-bf7bf39b5ba1" />  
 
-2. Cut the 3x 6" XA JST jumper cables in half to make 6x 3" cables, each with one pin. Strip 4x of the cables to expose the wires on the non-pin ends. Insert and solder the wires into the back-side of the Phob board's GPIO breakout pins lablled GP12-GP15 as shown above:  
+2. Cut the 3x 6" XA JST jumper cables in half to make 6x 3" cables, each with one pin. Strip 4x of the cables to expose the wires on the non-pin ends. Insert and solder the wires into the back-side of the Phob board's GPIO breakout pins labeled GP12-GP15 as shown above:  
 
   
 <img width="740" height="410" alt="rn_image_picker_lib_temp_c13a6599-646f-4fae-9a03-d20db38ac024 (1)" src="https://github.com/user-attachments/assets/8effcd73-a8c0-401a-8615-60797d17e636" />  
@@ -156,12 +156,12 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
   
 <img width="740" height="577" alt="PXL_20260826_021211120 (1)" src="https://github.com/user-attachments/assets/39bf7ff3-ea57-412d-9c40-f4a6783d08d8" />  
 
-4. With the 2x remaining wires, cut their length down to ~1.5" and strip the non pin-side to expose the wires. Solder one wire to the '+' side of the rumble pin and the other to the square ground pin of the PhobVision pins, located above the rumble pins. Insert the pins into the XA JST male header, routing the ground connection to the left side and the positive connection to the right side of the header in the above orientation:  
+4. With the 2x remaining wires, cut their length down to ~1.5" and strip the non-pin end to expose the wires. Solder one wire to the '+' side of the rumble pin and the other to the square ground pin of the PhobVision pins, located above the rumble pins. Insert the pins into the XA JST male header, routing the ground connection to the left side and the positive connection to the right side of the header in the above orientation:  
 
   
 <img width="739" height="515" alt="PXL_20260826_022255254 (1)" src="https://github.com/user-attachments/assets/cf27a972-e5d4-4ab4-912d-e61ccec499a4" />  
 
-5. Fit the 4x pin XA JST header through the opening of the rumble motor bracket and move the 2x pin XA JST header out of the way. Insert the trigger boards into place, and press the rumble motor bracket down as above:  
+5. Fit the 4-pin XA JST header through the opening of the rumble motor bracket and move the 2-pin XA JST header out of the way. Insert the trigger boards into place, and press the rumble motor bracket down as above:  
 
   
 <img width="740" height="617" alt="PXL_20260826_022522808 (1)" src="https://github.com/user-attachments/assets/36a72e92-9845-41d6-a770-6504cf614dc9" />  
@@ -174,7 +174,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
   
 <img width="740" height="652" alt="PXL_20260826_023850832 (1)" src="https://github.com/user-attachments/assets/102004c4-d942-445e-89b7-5e0974df5eef" />  
 
-7. Add buttons, making sure to use the tall start button, and membranes to top-shell. Move the STEMMA QT cable so that it routes upwards between the small wall piece and the controller cable loop post as shown:  
+7. Add buttons, making sure to use the tall start button, and button membranes to the top-shell. Move the STEMMA QT cable so that it routes upwards between the small wall piece and the controller cable loop post as shown:  
 
   
 <img width="740" height="612" alt="PXL_20260826_024154263 (1)" src="https://github.com/user-attachments/assets/306b9456-ed07-4a46-bd49-07c54fb7cc1b" />  
