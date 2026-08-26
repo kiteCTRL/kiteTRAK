@@ -121,7 +121,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 
 
 4. Press the OLED display into place, add screen cover on-top of display, and use the 4x 8mm pan-head Torx screws to mount the screen to the top-shell:  
-<img width="740" height="635" alt="PXL_20260826_010112606 (1)" src="https://github.com/user-attachments/assets/b848feb5-76ed-4b0e-bde3-90c7b7ff5e25" />
+<img width="740" height="652" alt="PXL_20260826_010610511 (1)" src="https://github.com/user-attachments/assets/2938dccb-6987-4ab9-ab25-c4620575c9cc" />  
 
     * Note: If OLED display does not want to fit into the top-shell, you may need to carve some of the top-shell side material where the headers fit into the gaps. Do NOT force the OLED display as it may break.
 
