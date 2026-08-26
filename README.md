@@ -107,18 +107,18 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 ## Installation
 
 ### Preparing the Top-shell:
-1. Press in the 7x screw-to-expand threaded inserts in the following positions with the caps facing up:  
 <img width="740" height="534" alt="PXL_20260825_225429024" src="https://github.com/user-attachments/assets/596e8721-6f33-474e-9b1b-bff9c884632c" />
 
+1. Press in the 7x screw-to-expand threaded inserts in the following positions with the caps facing up:  
     * Note: If threaded inserts do not press fit with just a little force, use the P1 Philips screwdriver to slowly carve away some of the inner plastic materials in the insert posts. Make sure to only remove a small amount of material at a time to avoide loose inserts.
 
-2. After all inserts are installed, use the pan-head Torx screws to expand and tighten down the inserts until flush:  
 <img width="740" height="679" alt="PXL_20260826_005752434 (1)" src="https://github.com/user-attachments/assets/aa2c25d4-b4d1-4d2a-88eb-b1d2cf9837e2" />
 
+2. After all inserts are installed, use the pan-head Torx screws to expand and tighten down the inserts until flush:  
 
-3. Attach the STEMMA QT cable to the right side header of the OLED display and feed it through the gap on the top-shell:  
 <img width="740" height="635" alt="PXL_20260826_010112606 (1)" src="https://github.com/user-attachments/assets/b0bc20e0-9b7a-40b9-94e9-2fe18ae144d1" />  
 
+3. Attach the STEMMA QT cable to the right side header of the OLED display and feed it through the gap on the top-shell:  
 
 4. Press the OLED display into place, add screen cover on-top of display, and use the 4x 8mm pan-head Torx screws to mount the screen to the top-shell:  
 <img width="740" height="652" alt="PXL_20260826_010610511 (1)" src="https://github.com/user-attachments/assets/2938dccb-6987-4ab9-ab25-c4620575c9cc" />  
