@@ -193,4 +193,4 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 PhobGCC: https://github.com/PhobGCC/PhobGCC-SW  
 Olympia removable gateplate: https://github.com/sean44104/Removable-Gate-GCC  
 
-**Note:** Parts of this project was made with the assistance of AI tools. All generated content has been reviewed and tested by the author, but use it at your own discretion. Graphics and 3d models were made by myself, OlympiA, or credited in the files to who had made them; AI was not used for these purposes.
+**Note:** Parts of this project were made with the assistance of AI tools. All generated content has been reviewed and tested by the author, but use it at your own discretion. Graphics and 3D models were made by myself, Olympia, or credited in the files to who had made them; AI was not used for these purposes.
