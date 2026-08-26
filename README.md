@@ -15,6 +15,7 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 * Press Z + D-pad Left/Right to navigate the multiple modes with visuals showing which mode you are about to select
 * Releasing Z (or while holding, pressing D-pad Up/Down) will exit the menu navigation into the mode you are seeing
 * Pressing Z + D-pad Up/Down will navigate the various views within the mode you are in
+* Holding Z + Start for 3 seconds on any of the below views will set that to be the default screen after booting
     * There is also a lock icon displayed in the top-right to let you know if your Phob has safe mode enabled (locked icon) or disabled (unlocked icon)
 
 ### Button Mode
