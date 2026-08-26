@@ -84,7 +84,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 * Screen cover: Imagine Black Resin with General Sanding
 * Rumble motor bracket: JLC Black Resin with General Sanding
 * Tall start button: Grey Resin (replicates look of OEM start button)
-* Olympia removable gateplate: 8001 Resin Transparent with Oil Spraying
+* Olympia removable gateplate: 8001 Resin Transparent with Oil Spraying or 9600R White Resin with General Sanding
 
 
 ### Electronics
