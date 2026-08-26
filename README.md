@@ -15,7 +15,7 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 * Press Z + D-pad Left/Right to navigate the multiple modes with visuals showing which mode you are about to select
 * Releasing Z (or while holding, pressing D-pad Up/Down) will exit the menu navigation into the mode you are seeing
 * Pressing Z + D-pad Up/Down will navigate the various views within the mode you are in
-    * There is also a lock icon displayed in the top-right to let you know if your Phob if safe mode is enabled (locked icon) or disabled (unlocked icon).
+    * There is also a lock icon displayed in the top-right to let you know if your Phob if safe mode is enabled (locked icon) or disabled (unlocked icon)
 
 ### Button Mode:
 <img width="560" height="560" alt="PXL_20260826_154814305 (1)" src="https://github.com/user-attachments/assets/0540e5b4-5fb1-44ca-a224-17d676927149" />  
