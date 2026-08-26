@@ -166,7 +166,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
   
 <img width="740" height="617" alt="PXL_20260826_022522808 (1)" src="https://github.com/user-attachments/assets/36a72e92-9845-41d6-a770-6504cf614dc9" />  
 
-6. Mount the cable headers into the QtPy RP2040 and move it into the space in the center of the bracket. The installed QtPy RP2040 will sit as shown above:  
+6. Mount the cable headers into the QtPy RP2040 and move it into the space in the center of the bracket. The installed QtPy RP2040 will sit as shown above:
     * Note: Make sure to route the 4x GPIO wires so they are in front of the 'T' post to avoid interfering with the back-shell when closing. Also, the headers should fit into a small recess that dips down towards the board. 
 
     Now would be a good time to flash the firmware for the Phob board and the QtPy RP2040. Press and hold the reset button on the boards during USB mount to allow flashing the .uf2 files found in Releases. Make sure to only have one USB plugged in at a time when flashing. THIS MAY DAMAGE THE PHOB AND QTPY RP2040.
