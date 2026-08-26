@@ -1,6 +1,6 @@
 # kiteTRAK-for-PhobGCC
 
-![kiteTRAK-controller](image-1.png)
+<img width="740" height="741" alt="PXL_20260826_130957816" src="https://github.com/user-attachments/assets/de21104a-b67e-4540-9c75-9229bcdc93c1" />  
 
 ## How it Works
 A QtPy RP2040 microcontroller is added to the controller internals to read the PhobGCC state and drive the 128x64 OLED display. The PhobGCC and QtPy RP2040 utilize DMA-based SPI communication for extremely fast speeds without intereupting the PhobGCC, maitaining reliable controller functionality. The QtPy RP2040 and OLED display are powered via the 5V line, replacing the rumble motor. The current draw is measured to be 30-40mA, which is about the same current draw as the rumble motor itself.
@@ -10,36 +10,36 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 ## Features and Use
 
 ### Menu Navigation:
-![menu](<PXL_20260826_155146718 (1).jpg>)  
+<img width="560" height="560" alt="PXL_20260826_155146718 (1)" src="https://github.com/user-attachments/assets/68b6991b-37da-4a8c-b9d6-a73d569136bf" />  
 * Press Z + D-pad Left/Right to navigate the multiple modes with visuals showing which mode you are about to select
 * Releasing Z (or while holding, pressing D-pad Up/Down) will exit the menu navigation into the mode you are seeing
 * Pressing Z + D-pad Up/Down will navigate the various views within the mode you are in
     * There is also a lock icon displayed in the top-right to let you know if your Phob if safe mode is enabled (locked icon) or disabled (unlocked icon).
 
 ### Button Mode:
-![button-mode](<PXL_20260826_154814305 (1).jpg>)  
+<img width="560" height="560" alt="PXL_20260826_154814305 (1)" src="https://github.com/user-attachments/assets/0540e5b4-5fb1-44ca-a224-17d676927149" />  
 * View main stick and C stick values with visual display
 * View analog trigger values and digital button inputs with visual display
 * View dashboard of all analog and digital inputs in one simple look  
 
 ### IPM Mode:
-![ipm-mode](<rn_image_picker_lib_temp_c69bd927-668b-4897-ad5c-2858ec075ff4 (1).jpg>)  
+<img width="560" height="560" alt="rn_image_picker_lib_temp_c69bd927-668b-4897-ad5c-2858ec075ff4 (1)" src="https://github.com/user-attachments/assets/bba8f48f-e270-4e9d-9391-b4b5f5c840a6" />  
 * View your Inputs per Minute (IPM) with a large number in the center of the screen
 * View your IPM with a plot showing its change over time
     * If you reach a high-enough IPM, a Balatro-inspired fire animation will be displayed in either view
 
 ### Timer Mode:
-![timer-mode](<PXL_20260826_160518765 (1).jpg>)  
+<img width="560" height="560" alt="PXL_20260826_160518765 (1)" src="https://github.com/user-attachments/assets/e2a786d4-bbbe-4c22-8dbf-d4ec942ced90" />  
 * Display the total time since your controller has been plugged in
 
 ### Animation Mode:
-![anim-mode](<PXL_20260826_160734884 (1).jpg>)  
+<img width="560" height="560" alt="PXL_20260826_160734884 (1)" src="https://github.com/user-attachments/assets/9af5c1f8-9d7b-408a-8b02-b26ca3254eb8" />  
 * Display a fire animtation
 * Display a rain animation
 * Display a water puddle reactive animation based on digital controller inputs
 
 ### Calibration Mode:
-![cal-mode](<PXL_20260826_161128514 (1).jpg>)  
+<img width="560" height="560" alt="PXL_20260826_161128514 (1)" src="https://github.com/user-attachments/assets/188cfc85-61dc-42e7-a0a7-1dd62d47b275" />  
 * Display a QR code to access the PhobGCC Calibration guide
 * Stick Calibration: A guided process to calibrate either stick, while showing you their exact values with a visual aid
     * If you press D-pad down, this will toggle a help menu for what you are doing at each segment of the calibration process
@@ -100,57 +100,57 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 
 ## Installation
 
-### Peparing the Top-shell:
+### Preparing the Top-shell:
 1. Press in the 7x screw-to-expand threaded inserts in the following positions with the caps facing up:  
-![add-inserts](PXL_20260825_225429024.jpg)
+<img width="740" height="534" alt="PXL_20260825_225429024" src="https://github.com/user-attachments/assets/596e8721-6f33-474e-9b1b-bff9c884632c" />  
     * Note: If threaded inserts do not press fit with just a little force, use the P1 Philips screwdriver to slowly carve away some of the inner plastic materials in the insert posts. Make sure to only remove a small amount of material at a time to avoide loose inserts.
 
 2. After all inserts are installed, use the pan-head Torx screws to expand and tighten down the inserts until flush:  
-![tighten-inserts](<PXL_20260826_005752434 (1).jpg>)
+<img width="740" height="679" alt="PXL_20260826_005752434 (1)" src="https://github.com/user-attachments/assets/aa2c25d4-b4d1-4d2a-88eb-b1d2cf9837e2" />  
 
 3. Attach the STEMMA QT cable to the right side header of the OLED display and feed it through the gap on the top-shell:  
 ![adding-screen](<PXL_20260826_010112606 (1).jpg>)
 
 4. Press the OLED display into place, add screen cover on-top of display, and use the 4x 8mm pan-head Torx screws to mount the screen to the top-shell:  
-![screen-added-topshell](<PXL_20260826_010610511 (1).jpg>)
+<img width="740" height="635" alt="PXL_20260826_010112606 (1)" src="https://github.com/user-attachments/assets/b848feb5-76ed-4b0e-bde3-90c7b7ff5e25" />  
     * Note: If OLED display does not want to fit into the top-shell, you may need to carve some of the top-shell side material where the headers fit into the gaps. Do NOT force the OLED display as it may break.
 
-5. Press your Olympia removable gateplat into the top-shell and use the 3x flat-head Torx screws to mount the gateplate to the top-shell. Once completed, the top-shell assembly should look like this when complete:  
-![back-side-complete-topshell](<PXL_20260826_010826354 (1).jpg>)
+5. Press your Olympia removable gateplate into the top-shell and use the 3x flat-head Torx screws to mount the gateplate to the top-shell. Once completed, the top-shell assembly should look like this when complete:  
+<img width="740" height="681" alt="PXL_20260826_010826354 (1)" src="https://github.com/user-attachments/assets/f8c3ca58-1039-467b-bc21-4222fd0985a4" />  
 
 ### Installing the QtPy RP2040:
 1. Insert and solder the female XA JST headers to the QtPy RP2040 as shown below:  
-![top-view-qt](PXL_20260826_014609451.jpg)
-![side-view-qt](PXL_20260826_014549643.jpg)
+<img width="740" height="622" alt="PXL_20260826_014609451" src="https://github.com/user-attachments/assets/1cffd1f4-b0c4-4533-aba5-2bbe6c14ad73" />  
+<img width="740" height="564" alt="PXL_20260826_014549643" src="https://github.com/user-attachments/assets/6a270760-95a5-4745-b62f-22d15b8b5f70" />  
     * Note: The headers will be facing opposite directions due to space constraints. Also, the 4pin XA JST header will sit on the ridge of the reset button, make sure it is not being pressed down when installing.
 
 2. Cut the 3x 6" XA JST jumper cables in half to make 6x 3" cables, each with one pin. Strip 4x of the cables to expose the wires on the non-pin ends. Insert and solder the wires into the back-side of the Phob board's GPIO breakout pins lablled GP12-GP15 as shown below:  
-![gpio-breakout-wires](<PXL_20260826_015955598 (1).jpg>)
+<img width="740" height="550" alt="PXL_20260826_015955598 (1)" src="https://github.com/user-attachments/assets/e7370de2-4382-4d9e-a5e2-bf7bf39b5ba1" />  
 
 3. Insert the pins into the XA JST male header with the following wires mounting the the following header holes:  
-![header-pinout](<rn_image_picker_lib_temp_c13a6599-646f-4fae-9a03-d20db38ac024 (1).jpg>)
+<img width="740" height="410" alt="rn_image_picker_lib_temp_c13a6599-646f-4fae-9a03-d20db38ac024 (1)" src="https://github.com/user-attachments/assets/8effcd73-a8c0-401a-8615-60797d17e636" />  
 
 4. With the 2x remaining wires, cut their length down to ~1.5" and strip the non pin-side to expose the wires. Solder one wire to the '+' side of the rumble pin and the other to the square ground pin of the PhobVision pins, located above the rumble pins. Insert the pins into the XA JST male header, routing the ground connection to the left side and the positive connection to the right side of the header in the following orientation:  
-![power-cable](<PXL_20260826_021211120 (1).jpg>)
+<img width="740" height="577" alt="PXL_20260826_021211120 (1)" src="https://github.com/user-attachments/assets/39bf7ff3-ea57-412d-9c40-f4a6783d08d8" />  
 
 5. Fit the 4x pin XA JST header through the opening of the rumble motor bracket and move the 2x pin XA JST header out of the way. Insert the trigger boards into place, and press the rumble motor bracket down as below:  
-![rumble-bracket](<PXL_20260826_022255254 (1).jpg>)
+<img width="739" height="515" alt="PXL_20260826_022255254 (1)" src="https://github.com/user-attachments/assets/cf27a972-e5d4-4ab4-912d-e61ccec499a4" /> 
 
 6. Mount the cable headers into the QtPy RP2040 and move it into the space in the center of the bracket. The installed QtPy RP2040 will sit as shown below:  
-![qtpy-installed](<PXL_20260826_022522808 (1).jpg>)
+<img width="740" height="617" alt="PXL_20260826_022522808 (1)" src="https://github.com/user-attachments/assets/36a72e92-9845-41d6-a770-6504cf614dc9" />  
     * Note: Make sure to route the 4x GPIO wires so they are in front of the 'T' post to avoid interfering with the back-shell when closing. Also, the headers should fit into a small recess that dips down towards the board. 
 
     Now would be a good time to flash the firmware for the Phob board and the QtPy RP2040. Press and hold the reset button on the boards during USB mount to allow flashing the .uf2 files found in Releases. Make sure to only have one USB plugged in at a time when flashing. THIS MAY DAMAGE THE PHOB AND QTPY RP2040.
 
 7. Add buttons, making sure to use the tall start button, and membranes to top-shell. Move the STEMMA QT cable so that it routes upwards between the small wall piece and the controller cable loop post as shown:  
-![stemma-cable-route](<PXL_20260826_023850832 (1).jpg>)
+<img width="740" height="652" alt="PXL_20260826_023850832 (1)" src="https://github.com/user-attachments/assets/102004c4-d942-445e-89b7-5e0974df5eef" />  
 
 8. Install Phob board into the top-shell, route STEMMA QT cable back towards the QtPy RP2040, and mount it in the left-side header of the QtPy RP2040. Route the controller cable into place.  
-![final-board-install](<PXL_20260826_024154263 (1).jpg>)
+<img width="740" height="612" alt="PXL_20260826_024154263 (1)" src="https://github.com/user-attachments/assets/306b9456-ed07-4a46-bd49-07c54fb7cc1b" />  
     * Note: Make sure the STEMMA QT cable avoids interfering with the trigger potentiometer. You can route the slack of the cable in the loop of the GPIO wires as seen above.
 
 9. If you have the mineral oil lubricant, add 1x drop to each of the screw posts of the top-shell, mount the back-shell, and slowly thread the Tri-wing screws into the controller screw posts. After screws are threaded, open the controller and clean up any of the mineral oil that is left behind. Finally, plug in your controller and confirm the display is working!  
-![done!](<PXL_20260826_025406819 (2).jpg>)
+<img width="740" height="652" alt="PXL_20260826_025406819 (2)" src="https://github.com/user-attachments/assets/8cdfd740-6dbf-410f-99a1-602faea28650" />  
 
 ## Project Sources and References
 PhobGCC: https://github.com/PhobGCC/PhobGCC-SW  
