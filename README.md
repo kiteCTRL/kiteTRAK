@@ -183,9 +183,14 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
     * Note: Make sure the STEMMA QT cable avoids interfering with the trigger potentiometer. You can route the slack of the cable in the loop of the GPIO wires as seen above.
 
   
+<img width="740" height="621" alt="PXL_20260826_024449589 (1)" src="https://github.com/user-attachments/assets/7a8fb767-9ab5-4295-b39c-d5cad3f7af2a" />
+  
+9. If using a newer GCC shell (like a Smash Ult. controller), you will need to trim this portion of the back-shell to void interference when closing with the QtPy RP2040 power cable wires.
+
+
 <img width="740" height="652" alt="PXL_20260826_025406819 (2)" src="https://github.com/user-attachments/assets/8cdfd740-6dbf-410f-99a1-602faea28650" />  
 
-9. If you have the mineral oil lubricant, add 1x drop to each of the screw posts of the top-shell, mount the back-shell, and slowly thread the Tri-wing screws into the controller screw posts. After screws are threaded, open the controller and clean up any of the mineral oil that is left behind. Finally, plug in your controller and confirm the display is working!  
+10. If you have the mineral oil lubricant, add 1x drop to each of the screw posts of the top-shell, mount the back-shell, and slowly thread the Tri-wing screws into the controller screw posts. After screws are threaded, open the controller and clean up any of the mineral oil that is left behind. Finally, plug in your controller and confirm the display is working!  
   
 
 ---
