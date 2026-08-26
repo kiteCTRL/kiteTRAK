@@ -186,12 +186,11 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 <img width="740" height="652" alt="PXL_20260826_025406819 (2)" src="https://github.com/user-attachments/assets/8cdfd740-6dbf-410f-99a1-602faea28650" />  
 
 9. If you have the mineral oil lubricant, add 1x drop to each of the screw posts of the top-shell, mount the back-shell, and slowly thread the Tri-wing screws into the controller screw posts. After screws are threaded, open the controller and clean up any of the mineral oil that is left behind. Finally, plug in your controller and confirm the display is working!  
-
-
-## Project Sources and References
-PhobGCC: https://github.com/PhobGCC/PhobGCC-SW  
-Olympia removable gateplate: https://github.com/sean44104/Removable-Gate-GCC  
   
 
 ---
+## Project Sources and References
+PhobGCC: https://github.com/PhobGCC/PhobGCC-SW  
+Olympia removable gateplate: https://github.com/sean44104/Removable-Gate-GCC  
+
 **Note:** Parts of this project was made with the assistance of AI tools. All generated content has been reviewed and tested by the author, but use it at your own discretion. Graphics were made by myself or credited in the files to who had made them, AI was not used for these purposes.
