@@ -9,7 +9,7 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 
 ## Features and Use
 
-### Menu Navigation:
+### Menu Navigation
 <img width="560" height="560" alt="PXL_20260826_155146718 (1)" src="https://github.com/user-attachments/assets/68b6991b-37da-4a8c-b9d6-a73d569136bf" />  
 
 * Press Z + D-pad Left/Right to navigate the multiple modes with visuals showing which mode you are about to select
@@ -17,33 +17,33 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 * Pressing Z + D-pad Up/Down will navigate the various views within the mode you are in
     * There is also a lock icon displayed in the top-right to let you know if your Phob if safe mode is enabled (locked icon) or disabled (unlocked icon)
 
-### Button Mode:
+### Button Mode
 <img width="560" height="560" alt="PXL_20260826_154814305 (1)" src="https://github.com/user-attachments/assets/0540e5b4-5fb1-44ca-a224-17d676927149" />  
 
 * View main stick and C stick values with visual display
 * View analog trigger values and digital button inputs with visual display
 * View dashboard of all analog and digital inputs in one simple look  
 
-### IPM Mode:
+### IPM Mode
 <img width="560" height="560" alt="rn_image_picker_lib_temp_c69bd927-668b-4897-ad5c-2858ec075ff4 (1)" src="https://github.com/user-attachments/assets/bba8f48f-e270-4e9d-9391-b4b5f5c840a6" />  
 
 * View your Inputs per Minute (IPM) with a large number in the center of the screen
 * View your IPM with a plot showing its change over time
     * If you reach a high-enough IPM, a Balatro-inspired fire animation will be displayed in either view
 
-### Timer Mode:
+### Timer Mode
 <img width="560" height="560" alt="PXL_20260826_160518765 (1)" src="https://github.com/user-attachments/assets/e2a786d4-bbbe-4c22-8dbf-d4ec942ced90" />  
 
 * Display the total time since your controller has been plugged in
 
-### Animation Mode:
+### Animation Mode
 <img width="560" height="560" alt="PXL_20260826_160734884 (1)" src="https://github.com/user-attachments/assets/9af5c1f8-9d7b-408a-8b02-b26ca3254eb8" />  
 
 * Display a fire animtation
 * Display a rain animation
 * Display a water puddle reactive animation based on digital controller inputs
 
-### Calibration Mode:
+### Calibration Mode
 <img width="560" height="560" alt="PXL_20260826_161128514 (1)" src="https://github.com/user-attachments/assets/188cfc85-61dc-42e7-a0a7-1dd62d47b275" />  
 
 * Display a QR code to access the PhobGCC Calibration guide
@@ -69,7 +69,7 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 
 ## Parts Needed
 
-### Controller:
+### Controller
 * PhobGCC 2.x controller
     * If you are making a new PhobGCC controller for this project, refer to the PhobGCC build guide for details: https://phobgcc.com/For_Makers/Build_Guide_2.0.html
 * Custom 3D printed components:
@@ -87,7 +87,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 * Olympia removable gateplate: 8001 Resin Transparent with Oil Spraying
 
 
-### Electronics:
+### Electronics
 * 1x Adafruit QtPy RP2040 microcontroller
 * 1x Adafruit Monochrome 0.96" 128x64 OLED Display
 * 1x Adafruit 50mm STEMMA QT cable
@@ -96,7 +96,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 * 3x 6" XA JST jumper cables
     - All parts above can be found in this DigiKey list: https://www.digikey.com/en/mylists/list/08I1ISAMJL
 
-### Hardware:
+### Hardware
 * 7x M2x0.4mm screw-to-expand press-in inserts (90363A110)
 * 3x 6mm M2x0.4mm flat-head Torx screws (90236A104)
 * 4x 8mm M2x0.4mm pan-head Torx screws (90304A325)
@@ -107,7 +107,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 
 ## Installation
 
-### Preparing the Top-shell:
+### Preparing the Top-shell
 <img width="740" height="534" alt="PXL_20260825_225429024" src="https://github.com/user-attachments/assets/596e8721-6f33-474e-9b1b-bff9c884632c" />  
 
 1. Press in the 7x screw-to-expand threaded inserts in the following positions with the caps facing up:  
@@ -135,7 +135,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 5. Press your Olympia removable gateplate into the top-shell and use the 3x flat-head Torx screws to mount the gateplate to the top-shell. Once completed, the top-shell assembly should look like this when complete:  
 
 
-### Installing the QtPy RP2040:
+### Installing the QtPy RP2040
 <img width="740" height="622" alt="PXL_20260826_014609451" src="https://github.com/user-attachments/assets/1cffd1f4-b0c4-4533-aba5-2bbe6c14ad73" />  
 
 <img width="740" height="564" alt="PXL_20260826_014549643" src="https://github.com/user-attachments/assets/6a270760-95a5-4745-b62f-22d15b8b5f70" />  
