@@ -155,7 +155,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
   
 <img width="740" height="577" alt="PXL_20260826_021211120 (1)" src="https://github.com/user-attachments/assets/39bf7ff3-ea57-412d-9c40-f4a6783d08d8" />  
 
-4. With the 2x remaining wires, cut their length down to ~1.5" and strip the non pin-side to expose the wires. Solder one wire to the '+' side of the rumble pin and the other to the square ground pin of the PhobVision pins, located above the rumble pins. Insert the pins into the XA JST male header, routing the ground connection to the left side and the positive connection to the right side of the header in the following orientation:  
+4. With the 2x remaining wires, cut their length down to ~1.5" and strip the non pin-side to expose the wires. Solder one wire to the '+' side of the rumble pin and the other to the square ground pin of the PhobVision pins, located above the rumble pins. Insert the pins into the XA JST male header, routing the ground connection to the left side and the positive connection to the right side of the header in the above orientation:  
 
   
 <img width="739" height="515" alt="PXL_20260826_022255254 (1)" src="https://github.com/user-attachments/assets/cf27a972-e5d4-4ab4-912d-e61ccec499a4" />  
