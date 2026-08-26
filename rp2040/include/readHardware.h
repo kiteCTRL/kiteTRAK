@@ -16,7 +16,6 @@
 #include "storage/pages/storage.h"
 #include "extras.h"
 
-
 void setPinModes() {
 	gpio_init(_pinA);
 	gpio_pull_up(_pinA);
@@ -61,6 +60,7 @@ void setPinModes() {
 	gpio_pull_up(_pinTx);
 	*/
 
+#ifndef EXTRAS_KT
 	//Rumble
     gpio_init(_pinRumble);
     gpio_init(_pinBrake);
@@ -76,6 +76,11 @@ void setPinModes() {
     pwm_set_chan_level(brakeSlice_num,  PWM_CHAN_B, 255);//B for odd pins
     pwm_set_enabled(rumbleSlice_num, true);
     pwm_set_enabled(brakeSlice_num,  true);
+#endif
+
+#ifdef EXTRAS_KT
+	kt::rumble_pin_setup();
+#endif
 
 	//initialize SPI at 1 MHz
 	//initialize SPI at 3 MHz just to test

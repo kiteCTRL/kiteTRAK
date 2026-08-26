@@ -1,4 +1,4 @@
-To build PhobGCC for the RP2040:
+To build PhobGCC with kiteTRAK for the RP2040:
 
 1. Install the compiler toolchain as per the [Pico documentation](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf).
 2. Git clone the `pico-sdk` repository from https://github.com/raspberrypi/pico-sdk

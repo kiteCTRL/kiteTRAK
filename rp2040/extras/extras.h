@@ -84,6 +84,7 @@ void extrasInit() {
 	debug_println("Extra: Enabling KT functionality...");
 	extrasConfigAssign(kt::extrasKtConfigSlot, kt::toggle, NULL);
 #endif
+
 }
 
 #endif //EXTRAS_H
