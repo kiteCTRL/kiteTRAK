@@ -5,7 +5,7 @@
 ## How it Works
 A QtPy RP2040 microcontroller is added to the controller to read the PhobGCC state and drive the 128x64 OLED display. The PhobGCC and QtPy RP2040 utilize DMA-based SPI communication for extremely fast comm speeds without interrupting the PhobGCC and maintaining reliable controller functionality. The QtPy RP2040 and OLED display are powered via the 5V line, replacing the rumble motor. The current draw is measured to be 30-40mA, which is about the same current draw as the rumble motor itself.
 
-Hardware, firmware, and rumble motor bracket 3d model designed by me and top-shell, screen cover, and tall start button 3d models designed by Olympia https://github.com/sean44104 (thank you!).
+Hardware, firmware, and rumble motor bracket 3D model designed by me and top-shell, screen cover, and tall start button 3D models designed by Olympia https://github.com/sean44104 (thank you!).
 
 ## Features and Use
 
