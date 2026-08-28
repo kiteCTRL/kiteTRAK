@@ -58,9 +58,7 @@ Hardware, firmware, and rumble motor bracket 3d model designed by me and top-she
 ---
 
 ## Equipment Needed
-* Soldering iron
-* Desoldering pump/wick
-* Flux
+* Soldering equipment
 * Wire strippers
 * Flush cutters
 * Y1 Tri-Wing screwdriver
@@ -214,4 +212,4 @@ Now would be a good time to flash the firmware for the Phob board and the QtPy R
 PhobGCC: https://github.com/PhobGCC/PhobGCC-SW  
 Olympia removable gateplate: https://github.com/sean44104/Removable-Gate-GCC  
 
-**Note:** Parts of this project were made with the assistance of AI tools. All generated content has been reviewed and tested by the author, but use it at your own discretion. Graphics and 3D models were made by myself, Olympia, or credited in the files to those who made them; AI was not used for these purposes.
+**Disclaimer:** Parts of this project were made with the assistance of AI tools. All generated content has been reviewed and tested by the author, but use it at your own discretion. Graphics, 3D models, and hardware design were made by myself, Olympia, or credited in the files to those who made them; AI was not used for these purposes.
