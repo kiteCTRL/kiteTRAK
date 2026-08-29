@@ -135,7 +135,8 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 
 <img width="740" height="681" alt="PXL_20260826_010826354 (1)" src="https://github.com/user-attachments/assets/f8c3ca58-1039-467b-bc21-4222fd0985a4" />  
 
-5. Press your Olympia removable gateplate into the top-shell and use the 3x flat-head Torx screws to mount the gateplate to the top-shell. Once completed, the top-shell assembly should look like this when complete:  
+5. Press your Olympia removable gateplate into the top-shell and use the 3x flat-head Torx screws to mount the gateplate to the top-shell. Once completed, the top-shell assembly should look like this when complete:
+    * Note: Due to print variations, the stick's rubber may contact the gateplate causing a poor feel to stick travel along the notches. To fix, add some filler material inside the stick's post to raise the stick slightly.
 
 <br>
 
