@@ -144,7 +144,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 
 <img width="740" height="564" alt="PXL_20260826_014549643" src="https://github.com/user-attachments/assets/6a270760-95a5-4745-b62f-22d15b8b5f70" />  
 
-1. Insert and solder the female XA JST headers to the QtPy RP2040 as shown above:  
+1. Insert and solder the female XA JST headers to the QtPy RP2040 as shown above. Also, trim the soldered pins so they are nearly flush with the PCB.  
     * Note: The headers will be facing opposite directions due to space constraints. Also, the 4-pin XA JST header will sit on the ridge of the reset button, make sure it is not being pressed down when installing.
 
 <br>
