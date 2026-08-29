@@ -99,7 +99,7 @@ If 3D printing parts with JLCPCB, I recommend the following materials and surfac
 * 7x M2x0.4mm screw-to-expand press-in inserts (90363A110)
 * 3x 6mm M2x0.4mm flat-head Torx screws (90236A104)
 * 4x 8mm M2x0.4mm pan-head Torx screws (90304A325)
-* Recommended: Mineral oil lubricant (1244K14)
+* Recommended: Multipurpose mineral oil lubricant (1244K14)
     - Part numbers added to find on McMaster-Carr
 
 ---
