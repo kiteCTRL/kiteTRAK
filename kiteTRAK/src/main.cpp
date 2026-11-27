@@ -23,23 +23,46 @@ static void kt_dma_irq_handler(void);
 static void kt_dma_irq_handler(void) {
   if (kt_dma_chan >= 0) {
     dma_hw->ints0 = 1u << kt_dma_chan; // clear IRQ for our channel
-    // Copy received data from DMA buffer to input buffer
-    size_t sof_idx = FRAME_LEN;
+
+    // Copy received data from DMA buffer to temp buffer
+    static uint8_t frame_buf[BUF_LEN];
+    static int frame_buf_offset = -1;
     for (size_t i = 0; i < FRAME_LEN; ++i) {
-      if (dma_buf[i] == SOF_MARKER) {
-        sof_idx = i;
-        break;
+      if (frame_buf_offset < 0) {
+        // waiting for a frame to start
+        if (dma_buf[i] == SOF_MARKER) {
+          frame_buf_offset = 0; // new frame, start copying into frame_buf
+        } else {
+          // garbage data
+        }
+      } else {
+        // writing a frame
+        if (frame_buf_offset < BUF_LEN) {
+          // copy to frame_buf
+          frame_buf[frame_buf_offset++] = dma_buf[i];
+        } else {
+          // we've read BUF_LEN bytes into the buffer
+          if (dma_buf[i] == EOF_MARKER) {
+            // flush complete frame to in_buf
+            for (uint8_t j = 0; j < BUF_LEN; j++) {
+              in_buf[j] = frame_buf[j];
+            }
+
+            frame_buf_offset = -1;
+          } else if (dma_buf[i] == SOF_MARKER) {
+            // corrupted frame - try to begin a new frame
+            frame_buf_offset = 0;
+          } else {
+            // corrupted frame - we got SOF_MARKER, then BUF_LEN frames but they weren't followed by EOF_MARKER. drop the frame.
+            frame_buf_offset = -1;
+          }
+        }
       }
     }
 
-    if (sof_idx < FRAME_LEN &&
-        dma_buf[(sof_idx + FRAME_LEN - 1) % FRAME_LEN] == EOF_MARKER) {
-      for (size_t i = 0; i < BUF_LEN; ++i) {
-        in_buf[i] = dma_buf[(sof_idx + 1 + i) % FRAME_LEN];
-      }
-    }
     kt_dma_data_ready = true;
   }
+
   kt_dma_busy = false;
 }
 

@@ -234,6 +234,14 @@ namespace kt {
 
 		return false; // no transfer initiated
 	}
+	
+	bool SPI_transfer(const Buttons &buttons, const ControlConfig &controls) {
+		return SPI_transfer(
+			buttons, 
+			controls, 
+			(int)out_buf.calibrationStepEncoded - 128,
+			static_cast<WhichStick>(out_buf.whichStick));
+	}
 
 	bool toggle(IntOrFloat config[]) {
 		int& enabled = config[KT_SETTING_ENABLE].intValue;
