@@ -117,7 +117,7 @@ void melee_coord_clamp(const int xIn, const int yIn, float &xOut, float &yOut) {
 }
 
 // Assign Buttons to Struct
-void assign_buttons(const KtData& data, Buttons &btn) {
+void assign_buttons(const ktshared::KtData& data, Buttons &btn) {
     btn.A = get_nth_bit(data.buttons[0], 0);
     btn.B = get_nth_bit(data.buttons[0], 1);
     btn.X = get_nth_bit(data.buttons[0], 2);
@@ -145,8 +145,8 @@ void assign_buttons(const KtData& data, Buttons &btn) {
 }
 
 // Parse PhobGCC Configuration from buffer
-void parse_phob_config(const KtData& data, PhobConfig &config) {
-    config.calibration_step = (int)data.calibrationStepEncoded - 128;
+void parse_phob_config(const ktshared::KtData& data, PhobConfig &config) {
+    config.calibration_step = ktshared::decodeSigned(data.calibrationStepEncoded);
     config.aRemap = data.aRemap;
     config.bRemap = data.bRemap;
     config.dRemap = data.dRemap;
@@ -161,8 +161,8 @@ void parse_phob_config(const KtData& data, PhobConfig &config) {
     config.rTriggerOffset = data.rTriggerOffset;
     config.rumble = data.rumble;
     config.autoInit = data.autoInit;
-    config.xSnapback = (int8_t)(data.xSnapbackEncoded - 128);
-    config.ySnapback = (int8_t)(data.ySnapbackEncoded - 128);
+    config.xSnapback = ktshared::decodeSigned(data.xSnapbackEncoded);
+    config.ySnapback = ktshared::decodeSigned(data.ySnapbackEncoded);
     config.axSmoothing = data.axSmoothing;
     config.aySmoothing = data.aySmoothing;
     config.cxSmoothing = data.cxSmoothing;
@@ -171,8 +171,8 @@ void parse_phob_config(const KtData& data, PhobConfig &config) {
     config.ayWaveshaping = data.ayWaveshaping;
     config.cxWaveshaping = data.cxWaveshaping;
     config.cyWaveshaping = data.cyWaveshaping;
-    config.astickCardinalSnapping = (int8_t)(data.astickCardinalSnappingEncoded - 128);
-    config.cstickCardinalSnapping = (int8_t)(data.cstickCardinalSnappingEncoded - 128);
+    config.astickCardinalSnapping = ktshared::decodeSigned(data.astickCardinalSnappingEncoded);
+    config.cstickCardinalSnapping = ktshared::decodeSigned(data.cstickCardinalSnappingEncoded);
     config.astickAnalogScaler = data.astickAnalogScaler;
     config.cstickAnalogScaler = data.cstickAnalogScaler;
     config.tournamentToggle = data.tournamentToggle;

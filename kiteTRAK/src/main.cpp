@@ -9,8 +9,8 @@
 
 #include "kiteTRAK.h"
 
-KtData in_buf{}; // current data
-uint8_t dma_buf[FRAME_LEN]; // dma transfer buffer
+ktshared::KtData in_buf{}; // current data
+uint8_t dma_buf[ktshared::FRAME_LEN]; // dma transfer buffer
 
 // DMA state for non-blocking SPI transfers
 static int kt_dma_chan = -1;
@@ -26,29 +26,29 @@ static void kt_dma_irq_handler(void) {
     dma_hw->ints0 = 1u << kt_dma_chan; // clear IRQ for our channel
 
     // Copy received data from DMA buffer to temp buffer
-    static uint8_t frame_buf[BUF_LEN];
+    static uint8_t frame_buf[ktshared::BUF_LEN];
     static int frame_buf_offset = -1;
-    for (size_t i = 0; i < FRAME_LEN; ++i) {
+    for (size_t i = 0; i < ktshared::FRAME_LEN; ++i) {
       if (frame_buf_offset < 0) {
         // waiting for a frame to start
-        if (dma_buf[i] == SOF_MARKER) {
+        if (dma_buf[i] == ktshared::SOF_MARKER) {
           frame_buf_offset = 0; // new frame, start copying into frame_buf
         } else {
           // garbage data
         }
       } else {
         // writing a frame
-        if (frame_buf_offset < BUF_LEN) {
+        if (frame_buf_offset < ktshared::BUF_LEN) {
           // copy to frame_buf
           frame_buf[frame_buf_offset++] = dma_buf[i];
         } else {
           // we've read BUF_LEN bytes into the buffer
-          if (dma_buf[i] == EOF_MARKER) {
+          if (dma_buf[i] == ktshared::EOF_MARKER) {
             // flush complete frame to in_buf
             std::memcpy(&in_buf, frame_buf, sizeof in_buf);
 
             frame_buf_offset = -1;
-          } else if (dma_buf[i] == SOF_MARKER) {
+          } else if (dma_buf[i] == ktshared::SOF_MARKER) {
             // corrupted frame - try to begin a new frame
             frame_buf_offset = 0;
           } else {
@@ -143,7 +143,7 @@ Splash splashes[MAX_SPLASHES];
 //===============================================================//
 
 void setup() {
-  spi_init(spi0, 1000*1000); //1MHz Baudrate
+  spi_init(spi0, ktshared::SPI_BAUD_RATE);
   spi_set_slave(spi0, true);
 
   gpio_set_function(4, GPIO_FUNC_SPI); // MISO (Rx)
@@ -167,7 +167,7 @@ void setup() {
   }
 
   in_buf = {};
-  for(size_t i = 0; i < FRAME_LEN; ++i) {
+  for(size_t i = 0; i < ktshared::FRAME_LEN; ++i) {
     dma_buf[i] = 0;
   }
 }
@@ -189,7 +189,7 @@ void loop() {
       dma_channel_configure(kt_dma_chan, &c,
                             dma_buf,                // destination: DMA buffer
                             &spi_get_hw(spi0)->dr,  // source: SPI data register
-                            FRAME_LEN,             // transfer count
+                            ktshared::FRAME_LEN,    // transfer count
                             true);                  // start immediately
     }
   }
