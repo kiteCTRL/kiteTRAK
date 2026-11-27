@@ -70,7 +70,7 @@ void second_core() {
 		static bool undoCal = false;
 
 #ifdef EXTRAS_KT
-		kt::SPI_transfer(_btn.arr, _currentCalStep, _controls.safeMode, _controls.extras[kt::extrasKtConfigSlot].config, _btn.B, _controls, whichStick);
+		kt::SPI_transfer(_btn, _controls, _currentCalStep, whichStick);
 #endif
 
 		//when requested by the other core, commit the settings

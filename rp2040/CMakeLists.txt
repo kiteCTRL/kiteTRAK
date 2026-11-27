@@ -16,7 +16,7 @@ set(PICO_BOARD pico CACHE STRING "Board type")
 
 cmake_minimum_required(VERSION 3.12)
 
-include("C:/Users/ntste/Documents/PlatformIO/Projects/pico-sdk/pico_sdk_init.cmake")
+include(pico_sdk_import.cmake)
 
 project(phobgcc_rp2040 CXX C ASM)
 
