@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <cmath>
+#include <cstring>
 #include <EEPROM.h>
 #include "hardware/spi.h"
 #include "hardware/dma.h"
@@ -8,8 +9,8 @@
 
 #include "kiteTRAK.h"
 
-uint8_t in_buf[BUF_LEN];
-uint8_t dma_buf[FRAME_LEN];
+ktshared::KtData in_buf{}; // current data
+uint8_t dma_buf[ktshared::FRAME_LEN]; // dma transfer buffer
 
 // DMA state for non-blocking SPI transfers
 static int kt_dma_chan = -1;
@@ -23,23 +24,44 @@ static void kt_dma_irq_handler(void);
 static void kt_dma_irq_handler(void) {
   if (kt_dma_chan >= 0) {
     dma_hw->ints0 = 1u << kt_dma_chan; // clear IRQ for our channel
-    // Copy received data from DMA buffer to input buffer
-    size_t sof_idx = FRAME_LEN;
-    for (size_t i = 0; i < FRAME_LEN; ++i) {
-      if (dma_buf[i] == SOF_MARKER) {
-        sof_idx = i;
-        break;
+
+    // Copy received data from DMA buffer to temp buffer
+    static uint8_t frame_buf[ktshared::BUF_LEN];
+    static int frame_buf_offset = -1;
+    for (size_t i = 0; i < ktshared::FRAME_LEN; ++i) {
+      if (frame_buf_offset < 0) {
+        // waiting for a frame to start
+        if (dma_buf[i] == ktshared::SOF_MARKER) {
+          frame_buf_offset = 0; // new frame, start copying into frame_buf
+        } else {
+          // garbage data
+        }
+      } else {
+        // writing a frame
+        if (frame_buf_offset < ktshared::BUF_LEN) {
+          // copy to frame_buf
+          frame_buf[frame_buf_offset++] = dma_buf[i];
+        } else {
+          // we've read BUF_LEN bytes into the buffer
+          if (dma_buf[i] == ktshared::EOF_MARKER) {
+            // flush complete frame to in_buf
+            std::memcpy(&in_buf, frame_buf, sizeof in_buf);
+
+            frame_buf_offset = -1;
+          } else if (dma_buf[i] == ktshared::SOF_MARKER) {
+            // corrupted frame - try to begin a new frame
+            frame_buf_offset = 0;
+          } else {
+            // corrupted frame - we got SOF_MARKER, then BUF_LEN frames but they weren't followed by EOF_MARKER. drop the frame.
+            frame_buf_offset = -1;
+          }
+        }
       }
     }
 
-    if (sof_idx < FRAME_LEN &&
-        dma_buf[(sof_idx + FRAME_LEN - 1) % FRAME_LEN] == EOF_MARKER) {
-      for (size_t i = 0; i < BUF_LEN; ++i) {
-        in_buf[i] = dma_buf[(sof_idx + 1 + i) % FRAME_LEN];
-      }
-    }
     kt_dma_data_ready = true;
   }
+
   kt_dma_busy = false;
 }
 
@@ -121,7 +143,7 @@ Splash splashes[MAX_SPLASHES];
 //===============================================================//
 
 void setup() {
-  spi_init(spi0, 1000*1000); //1MHz Baudrate
+  spi_init(spi0, ktshared::SPI_BAUD_RATE);
   spi_set_slave(spi0, true);
 
   gpio_set_function(4, GPIO_FUNC_SPI); // MISO (Rx)
@@ -144,10 +166,8 @@ void setup() {
     irq_set_enabled(DMA_IRQ_0, true);
   }
 
-  for(size_t i = 0; i < BUF_LEN; ++i) {
-    in_buf[i] = 0;
-  }
-  for(size_t i = 0; i < FRAME_LEN; ++i) {
+  in_buf = {};
+  for(size_t i = 0; i < ktshared::FRAME_LEN; ++i) {
     dma_buf[i] = 0;
   }
 }
@@ -169,7 +189,7 @@ void loop() {
       dma_channel_configure(kt_dma_chan, &c,
                             dma_buf,                // destination: DMA buffer
                             &spi_get_hw(spi0)->dr,  // source: SPI data register
-                            FRAME_LEN,             // transfer count
+                            ktshared::FRAME_LEN,    // transfer count
                             true);                  // start immediately
     }
   }
@@ -212,10 +232,10 @@ void setup1() {
 
 void loop1() {
   // Assign button states to btn
-  assign_buttons(btn, in_buf);
+  assign_buttons(in_buf, btn);
 
   // Parse PhobGCC configuration data
-  parse_phob_config(phob_config, in_buf);
+  parse_phob_config(in_buf, phob_config);
 
   // Check for any input activity to track idle timeout
   unsigned long now_ms = to_ms_since_boot(get_absolute_time());
@@ -387,7 +407,7 @@ void loop1() {
 
     } else if (input_view_index == 2) {
       // Button/Sticks dashboard view
-      display_buttons_dash(btn, in_buf);
+      display_buttons_dash(btn);
     } 
     
     display.display();

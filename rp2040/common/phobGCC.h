@@ -161,7 +161,10 @@ int calcRumblePower(const int rumble){
 	}
 }
 
-void freezeSticks(const int time, Buttons &btn, Buttons &hardware) {
+void freezeSticks(const int time, Buttons &btn, Buttons &hardware, const ControlConfig *ktControls = nullptr) {
+#ifndef EXTRAS_KT
+	(void)ktControls; // suppress unused param warning
+#endif
 	btn.Cx = (uint8_t) (255);
 	btn.Cy = (uint8_t) (255);
 	btn.Ax = (uint8_t) (255);
@@ -189,7 +192,21 @@ void freezeSticks(const int time, Buttons &btn, Buttons &hardware) {
 
 	int startTime = millis();
 	int delta = 0;
+#ifdef EXTRAS_KT
+	int ktUpdateStartTime = startTime;
+#endif
+
 	while(delta < time){
+#ifdef EXTRAS_KT
+		// send SPI updates every 10ms while frozen
+		int ktCurrentTime = millis();
+		int ktUpdateDelta = ktCurrentTime - ktUpdateStartTime;
+		if (ktControls && ktUpdateDelta >= 10) {
+			if (kt::SPI_transfer(btn, *ktControls)) {
+				ktUpdateStartTime = ktCurrentTime;
+			}
+		}
+#endif
 		delta = millis() - startTime;
 	}
 }
@@ -2140,7 +2157,7 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 		if(hardware.A && hardware.X && hardware.Y && hardware.S && !hardware.L && !hardware.R) { //Safe Mode Toggle
 			controls.safeMode = true;
 			currentlyRaw = false;
-			freezeSticks(4000, btn, hardware);
+			freezeSticks(4000, btn, hardware, &controls);
 		} else if (hardware.A && hardware.Z && hardware.Du && !hardware.X && !hardware.Y && !hardware.L && !hardware.R) { //display version number (ignore commands for c stick snapback)
 			const int versionHundreds = floor(SW_VERSION/100.0);
 			const int versionOnes     = SW_VERSION-versionHundreds;
@@ -2364,7 +2381,7 @@ void processButtons(Pins &pin, Buttons &btn, Buttons &hardware, ControlConfig &c
 					running = true;
 				}
 				controls.safeMode = false;
-				freezeSticks(2000, btn, hardware);
+				freezeSticks(2000, btn, hardware, &controls);
 			}
 		} else if(safeModeLockout < safeModeLockoutDuration) {
 			safeModeLockout++;

@@ -1,6 +1,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <ktShared.h>
 
 #include "FreeSansBoldOblique12pt7b.h"
 #include "FreeSansBold9pt7b.h"
@@ -10,11 +11,6 @@
 #include "bitmaps.h"
 #include "flame.h"
 #include "rain.h"
-
-#define BUF_LEN    42       // Length of the payload
-#define FRAME_LEN  (BUF_LEN + 2)
-#define SOF_MARKER 0xFA     // Start of Frame marker
-#define EOF_MARKER 0xFB     // End of Frame marker
 
 #define ORG 127             // Origin point for stick calibration
 
@@ -121,69 +117,67 @@ void melee_coord_clamp(const int xIn, const int yIn, float &xOut, float &yOut) {
 }
 
 // Assign Buttons to Struct
-void assign_buttons(Buttons &btn, const uint8_t* input_buf) {
-    btn.A = get_nth_bit(input_buf[0], 0);
-    btn.B = get_nth_bit(input_buf[0], 1);
-    btn.X = get_nth_bit(input_buf[0], 2);
-    btn.Y = get_nth_bit(input_buf[0], 3);
-    btn.S = get_nth_bit(input_buf[0], 4);
+void assign_buttons(const ktshared::KtData& data, Buttons &btn) {
+    btn.A = get_nth_bit(data.buttons[0], 0);
+    btn.B = get_nth_bit(data.buttons[0], 1);
+    btn.X = get_nth_bit(data.buttons[0], 2);
+    btn.Y = get_nth_bit(data.buttons[0], 3);
+    btn.S = get_nth_bit(data.buttons[0], 4);
 
-    btn.Dl = get_nth_bit(input_buf[1], 0);
-    btn.Dr = get_nth_bit(input_buf[1], 1);
-    btn.Dd = get_nth_bit(input_buf[1], 2);
-    btn.Du = get_nth_bit(input_buf[1], 3);
-    btn.Z = get_nth_bit(input_buf[1], 4);
-    btn.R = get_nth_bit(input_buf[1], 5);
-    btn.L = get_nth_bit(input_buf[1], 6);
+    btn.Dl = get_nth_bit(data.buttons[1], 0);
+    btn.Dr = get_nth_bit(data.buttons[1], 1);
+    btn.Dd = get_nth_bit(data.buttons[1], 2);
+    btn.Du = get_nth_bit(data.buttons[1], 3);
+    btn.Z = get_nth_bit(data.buttons[1], 4);
+    btn.R = get_nth_bit(data.buttons[1], 5);
+    btn.L = get_nth_bit(data.buttons[1], 6);
 
-    btn.Ax = input_buf[2];
-    btn.Ay = input_buf[3];
-    btn.Cx = input_buf[4];
-    btn.Cy = input_buf[5];
+    btn.Ax = data.buttons[2];
+    btn.Ay = data.buttons[3];
+    btn.Cx = data.buttons[4];
+    btn.Cy = data.buttons[5];
 
-    btn.La = input_buf[6];
-    btn.Ra = input_buf[7];
+    btn.La = data.buttons[6];
+    btn.Ra = data.buttons[7];
 
     melee_coord_clamp(btn.Ax - ORG, btn.Ay - ORG, btn.Ax_melee, btn.Ay_melee);
     melee_coord_clamp(btn.Cx - ORG, btn.Cy - ORG, btn.Cx_melee, btn.Cy_melee);
 }
 
 // Parse PhobGCC Configuration from buffer
-void parse_phob_config(PhobConfig &config, const uint8_t* input_buf) {
-    config.calibration_step = (int)(input_buf[8]) - 128;
-    config.aRemap = input_buf[9];
-    config.bRemap = input_buf[10];
-    config.dRemap = input_buf[11];
-    config.lRemap = input_buf[12];
-    config.rRemap = input_buf[13];
-    config.xRemap = input_buf[14];
-    config.yRemap = input_buf[15];
-    config.zRemap = input_buf[16];
-    config.lConfig = input_buf[17];
-    config.rConfig = input_buf[18];
-    config.lTriggerOffset = input_buf[19];
-    config.rTriggerOffset = input_buf[20];
-    config.rumble = input_buf[21];
-    config.autoInit = input_buf[22];
-    config.xSnapback = (int8_t)(input_buf[23] - 128);
-    config.ySnapback = (int8_t)(input_buf[24] - 128);
-    config.cxSmoothing = (int8_t)(input_buf[25] - 128);
-    config.cySmoothing = (int8_t)(input_buf[26] - 128);
-    config.axSmoothing = input_buf[27];
-    config.aySmoothing = input_buf[28];
-    config.cxSmoothing = input_buf[29];
-    config.cySmoothing = input_buf[30];
-    config.axWaveshaping = input_buf[31];
-    config.ayWaveshaping = input_buf[32];
-    config.cxWaveshaping = input_buf[33];
-    config.cyWaveshaping = input_buf[34];
-    config.astickCardinalSnapping = (int8_t)(input_buf[35] - 128);
-    config.cstickCardinalSnapping = (int8_t)(input_buf[36] - 128);
-    config.astickAnalogScaler = input_buf[37];
-    config.cstickAnalogScaler = input_buf[38];
-    config.tournamentToggle = input_buf[39];
-    config.whichStick = input_buf[40];
-    config.safe_mode = input_buf[41];
+void parse_phob_config(const ktshared::KtData& data, PhobConfig &config) {
+    config.calibration_step = ktshared::decodeSigned(data.calibrationStepEncoded);
+    config.aRemap = data.aRemap;
+    config.bRemap = data.bRemap;
+    config.dRemap = data.dRemap;
+    config.lRemap = data.lRemap;
+    config.rRemap = data.rRemap;
+    config.xRemap = data.xRemap;
+    config.yRemap = data.yRemap;
+    config.zRemap = data.zRemap;
+    config.lConfig = data.lConfig;
+    config.rConfig = data.rConfig;
+    config.lTriggerOffset = data.lTriggerOffset;
+    config.rTriggerOffset = data.rTriggerOffset;
+    config.rumble = data.rumble;
+    config.autoInit = data.autoInit;
+    config.xSnapback = ktshared::decodeSigned(data.xSnapbackEncoded);
+    config.ySnapback = ktshared::decodeSigned(data.ySnapbackEncoded);
+    config.axSmoothing = data.axSmoothing;
+    config.aySmoothing = data.aySmoothing;
+    config.cxSmoothing = data.cxSmoothing;
+    config.cySmoothing = data.cySmoothing;
+    config.axWaveshaping = data.axWaveshaping;
+    config.ayWaveshaping = data.ayWaveshaping;
+    config.cxWaveshaping = data.cxWaveshaping;
+    config.cyWaveshaping = data.cyWaveshaping;
+    config.astickCardinalSnapping = ktshared::decodeSigned(data.astickCardinalSnappingEncoded);
+    config.cstickCardinalSnapping = ktshared::decodeSigned(data.cstickCardinalSnappingEncoded);
+    config.astickAnalogScaler = data.astickAnalogScaler;
+    config.cstickAnalogScaler = data.cstickAnalogScaler;
+    config.tournamentToggle = data.tournamentToggle;
+    config.whichStick = data.whichStick;
+    config.safe_mode = data.safeMode;
 }
 
 // Display Helper Functions
@@ -402,7 +396,7 @@ void display_stick(const Buttons &btn, const String &stick = "a", bool mini_stic
 }
 
 // Button State & Debug
-void display_buttons_dash(const Buttons &btn, uint8_t* input_buf = nullptr) {
+void display_buttons_dash(const Buttons &btn) {
     display.setTextSize(1);
     display.setTextColor(SSD1306_WHITE);
     display.setFont();
