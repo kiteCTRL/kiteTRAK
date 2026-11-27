@@ -2,6 +2,7 @@
 #define EXTRAS_KT_H
 
 #include <stddef.h>
+#include "ktShared.h"
 
 namespace kt {
 	/* Namespace for kiteTRAK functionality.
@@ -22,54 +23,6 @@ namespace kt {
 		KT_DISABLED,
 		KT_ENABLED
 	};
-
-	#define BUF_LEN 42
-	#define FRAME_LEN (BUF_LEN + 2)
-	#define SOF_MARKER 0xFA
-	#define EOF_MARKER 0xFB
-
-	struct KtFrame {
-		uint8_t sof;
-		uint8_t buttons[8];
-		uint8_t calibrationStepEncoded;
-		uint8_t aRemap;
-		uint8_t bRemap;
-		uint8_t dRemap;
-		uint8_t lRemap;
-		uint8_t rRemap;
-		uint8_t xRemap;
-		uint8_t yRemap;
-		uint8_t zRemap;
-		uint8_t lConfig;
-		uint8_t rConfig;
-		uint8_t lTriggerOffset;
-		uint8_t rTriggerOffset;
-		uint8_t rumble;
-		uint8_t autoInit;
-		uint8_t xSnapbackEncoded;
-		uint8_t ySnapbackEncoded;
-		uint8_t cxSmoothingEncoded;
-		uint8_t cySmoothingEncoded;
-		uint8_t axSmoothing;
-		uint8_t aySmoothing;
-		uint8_t cxSmoothing;
-		uint8_t cySmoothing;
-		uint8_t axWaveshaping;
-		uint8_t ayWaveshaping;
-		uint8_t cxWaveshaping;
-		uint8_t cyWaveshaping;
-		uint8_t astickCardinalSnappingEncoded;
-		uint8_t cstickCardinalSnappingEncoded;
-		uint8_t astickAnalogScaler;
-		uint8_t cstickAnalogScaler;
-		uint8_t tournamentToggle;
-		uint8_t whichStick;
-		uint8_t safeMode;
-		uint8_t eof;
-	};
-
-	static_assert(sizeof(KtFrame) == FRAME_LEN, "Unexpected kiteTRAK frame size");
-	static_assert(offsetof(KtFrame, safeMode) == 42, "Unexpected safe-mode offset");
 
 	#include "hardware/dma.h"
 	#include "hardware/irq.h"
@@ -158,46 +111,46 @@ namespace kt {
 
 		// Assign button states to out_buf (payload bytes 1-8)
 		for(size_t i = 0; i < 8; ++i) {
-			out_buf.buttons[i] = buttons.arr[i];
+			out_buf.data.buttons[i] = buttons.arr[i];
 		}
 
-		//out_buf.buttons[6] = (uint8_t)(spi_transfer_max_us);
-		out_buf.calibrationStepEncoded = (uint8_t)(calibration_step + 128);
+		//out_buf.data.buttons[6] = (uint8_t)(spi_transfer_max_us);
+		out_buf.data.calibrationStepEncoded = (uint8_t)(calibration_step + 128);
 
 		// Pack ControlConfig data for calibration assistance (payload bytes 9-41)
-		out_buf.aRemap = (uint8_t)controls.aRemap;
-		out_buf.bRemap = (uint8_t)controls.bRemap;
-		out_buf.dRemap = (uint8_t)controls.dRemap;
-		out_buf.lRemap = (uint8_t)controls.lRemap;
-		out_buf.rRemap = (uint8_t)controls.rRemap;
-		out_buf.xRemap = (uint8_t)controls.xRemap;
-		out_buf.yRemap = (uint8_t)controls.yRemap;
-		out_buf.zRemap = (uint8_t)controls.zRemap;
-		out_buf.lConfig = (uint8_t)controls.lConfig;
-		out_buf.rConfig = (uint8_t)controls.rConfig;
-		out_buf.lTriggerOffset = (uint8_t)controls.lTriggerOffset;
-		out_buf.rTriggerOffset = (uint8_t)controls.rTriggerOffset;
-		out_buf.rumble = (uint8_t)controls.rumble;
-		out_buf.autoInit = (uint8_t)controls.autoInit;
-		out_buf.xSnapbackEncoded = (uint8_t)(controls.xSnapback + 128);
-		out_buf.ySnapbackEncoded = (uint8_t)(controls.ySnapback + 128);
-		out_buf.cxSmoothingEncoded = (uint8_t)(controls.cxSmoothing + 128);
-		out_buf.cySmoothingEncoded = (uint8_t)(controls.cySmoothing + 128);
-		out_buf.axSmoothing = (uint8_t)controls.axSmoothing;
-		out_buf.aySmoothing = (uint8_t)controls.aySmoothing;
-		out_buf.cxSmoothing = (uint8_t)controls.cxSmoothing;
-		out_buf.cySmoothing = (uint8_t)controls.cySmoothing;
-		out_buf.axWaveshaping = (uint8_t)controls.axWaveshaping;
-		out_buf.ayWaveshaping = (uint8_t)controls.ayWaveshaping;
-		out_buf.cxWaveshaping = (uint8_t)controls.cxWaveshaping;
-		out_buf.cyWaveshaping = (uint8_t)controls.cyWaveshaping;
-		out_buf.astickCardinalSnappingEncoded = (uint8_t)(controls.astickCardinalSnapping + 128);
-		out_buf.cstickCardinalSnappingEncoded = (uint8_t)(controls.cstickCardinalSnapping + 128);
-		out_buf.astickAnalogScaler = (uint8_t)controls.astickAnalogScaler;
-		out_buf.cstickAnalogScaler = (uint8_t)controls.cstickAnalogScaler;
-		out_buf.tournamentToggle = (uint8_t)controls.tournamentToggle;
-		out_buf.whichStick = (uint8_t)whichStick;
-		out_buf.safeMode = (uint8_t)controls.safeMode;
+		out_buf.data.aRemap = (uint8_t)controls.aRemap;
+		out_buf.data.bRemap = (uint8_t)controls.bRemap;
+		out_buf.data.dRemap = (uint8_t)controls.dRemap;
+		out_buf.data.lRemap = (uint8_t)controls.lRemap;
+		out_buf.data.rRemap = (uint8_t)controls.rRemap;
+		out_buf.data.xRemap = (uint8_t)controls.xRemap;
+		out_buf.data.yRemap = (uint8_t)controls.yRemap;
+		out_buf.data.zRemap = (uint8_t)controls.zRemap;
+		out_buf.data.lConfig = (uint8_t)controls.lConfig;
+		out_buf.data.rConfig = (uint8_t)controls.rConfig;
+		out_buf.data.lTriggerOffset = (uint8_t)controls.lTriggerOffset;
+		out_buf.data.rTriggerOffset = (uint8_t)controls.rTriggerOffset;
+		out_buf.data.rumble = (uint8_t)controls.rumble;
+		out_buf.data.autoInit = (uint8_t)controls.autoInit;
+		out_buf.data.xSnapbackEncoded = (uint8_t)(controls.xSnapback + 128);
+		out_buf.data.ySnapbackEncoded = (uint8_t)(controls.ySnapback + 128);
+		out_buf.data.cxSmoothingEncoded = (uint8_t)(controls.cxSmoothing + 128);
+		out_buf.data.cySmoothingEncoded = (uint8_t)(controls.cySmoothing + 128);
+		out_buf.data.axSmoothing = (uint8_t)controls.axSmoothing;
+		out_buf.data.aySmoothing = (uint8_t)controls.aySmoothing;
+		out_buf.data.cxSmoothing = (uint8_t)controls.cxSmoothing;
+		out_buf.data.cySmoothing = (uint8_t)controls.cySmoothing;
+		out_buf.data.axWaveshaping = (uint8_t)controls.axWaveshaping;
+		out_buf.data.ayWaveshaping = (uint8_t)controls.ayWaveshaping;
+		out_buf.data.cxWaveshaping = (uint8_t)controls.cxWaveshaping;
+		out_buf.data.cyWaveshaping = (uint8_t)controls.cyWaveshaping;
+		out_buf.data.astickCardinalSnappingEncoded = (uint8_t)(controls.astickCardinalSnapping + 128);
+		out_buf.data.cstickCardinalSnappingEncoded = (uint8_t)(controls.cstickCardinalSnapping + 128);
+		out_buf.data.astickAnalogScaler = (uint8_t)controls.astickAnalogScaler;
+		out_buf.data.cstickAnalogScaler = (uint8_t)controls.cstickAnalogScaler;
+		out_buf.data.tournamentToggle = (uint8_t)controls.tournamentToggle;
+		out_buf.data.whichStick = (uint8_t)whichStick;
+		out_buf.data.safeMode = (uint8_t)controls.safeMode;
 		out_buf.eof = EOF_MARKER; // End of Frame marker
 
 		if(spi_is_writable(spi1)) {
@@ -239,8 +192,8 @@ namespace kt {
 		return SPI_transfer(
 			buttons, 
 			controls, 
-			(int)out_buf.calibrationStepEncoded - 128,
-			static_cast<WhichStick>(out_buf.whichStick));
+			(int)out_buf.data.calibrationStepEncoded - 128,
+			static_cast<WhichStick>(out_buf.data.whichStick));
 	}
 
 	bool toggle(IntOrFloat config[]) {

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <cmath>
+#include <cstring>
 #include <EEPROM.h>
 #include "hardware/spi.h"
 #include "hardware/dma.h"
@@ -8,8 +9,8 @@
 
 #include "kiteTRAK.h"
 
-uint8_t in_buf[BUF_LEN];
-uint8_t dma_buf[FRAME_LEN];
+KtData in_buf{}; // current data
+uint8_t dma_buf[FRAME_LEN]; // dma transfer buffer
 
 // DMA state for non-blocking SPI transfers
 static int kt_dma_chan = -1;
@@ -44,9 +45,7 @@ static void kt_dma_irq_handler(void) {
           // we've read BUF_LEN bytes into the buffer
           if (dma_buf[i] == EOF_MARKER) {
             // flush complete frame to in_buf
-            for (uint8_t j = 0; j < BUF_LEN; j++) {
-              in_buf[j] = frame_buf[j];
-            }
+            std::memcpy(&in_buf, frame_buf, sizeof in_buf);
 
             frame_buf_offset = -1;
           } else if (dma_buf[i] == SOF_MARKER) {
@@ -167,9 +166,7 @@ void setup() {
     irq_set_enabled(DMA_IRQ_0, true);
   }
 
-  for(size_t i = 0; i < BUF_LEN; ++i) {
-    in_buf[i] = 0;
-  }
+  in_buf = {};
   for(size_t i = 0; i < FRAME_LEN; ++i) {
     dma_buf[i] = 0;
   }
@@ -235,10 +232,10 @@ void setup1() {
 
 void loop1() {
   // Assign button states to btn
-  assign_buttons(btn, in_buf);
+  assign_buttons(in_buf, btn);
 
   // Parse PhobGCC configuration data
-  parse_phob_config(phob_config, in_buf);
+  parse_phob_config(in_buf, phob_config);
 
   // Check for any input activity to track idle timeout
   unsigned long now_ms = to_ms_since_boot(get_absolute_time());
@@ -410,7 +407,7 @@ void loop1() {
 
     } else if (input_view_index == 2) {
       // Button/Sticks dashboard view
-      display_buttons_dash(btn, in_buf);
+      display_buttons_dash(btn);
     } 
     
     display.display();
